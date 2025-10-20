@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marina Wellness Club — Support</title>
+  <meta name="description" content="Support & contact page for the Marina Wellness Club app. Get help, view FAQs, or contact our team." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071029 0%, #071b2a 100%);color:#e6eef6;line-height:1.45}
+    .wrap{max-width:1100px;margin:40px auto;padding:24px}
+
+    header{display:flex;align-items:center;gap:18px}
+    .logo{width:62px;height:62px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(8,15,29,0.6)}
+    .logo svg{width:36px;height:36px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    main{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+
+    /* left */
+    .support-intro h2{margin:0 0 8px}
+    .support-intro p{color:var(--muted);margin-top:0}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .method{background:var(--glass);padding:12px;border-radius:10px}
+    .method strong{display:block}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#041022;text-decoration:none;font-weight:600}
+
+    form{margin-top:16px;display:grid;gap:10px}
+    label{font-size:13px;color:var(--muted)}
+    input[type=text], input[type=email], textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:flex;gap:10px}
+    .row .col{flex:1}
+
+    .faq{margin-top:18px}
+    .faq h3{margin-top:0}
+    details{background:var(--glass);padding:12px;border-radius:10px;margin-bottom:10px}
+
+    /* right panel */
+    .right{display:flex;flex-direction:column;gap:14px}
+    .meta{display:flex;align-items:center;justify-content:space-between}
+    .small{font-size:13px;color:var(--muted)}
+
+    .app-preview{border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#061428,#032034);padding:14px}
+    .phone{width:100%;height:420px;border-radius:12px;background:linear-gradient(180deg,#081a2a,#042533);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .phone h4{margin:0}
+    .links{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .links a{padding:10px;border-radius:10px;text-decoration:none;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;text-align:center}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:880px){main{grid-template-columns:1fr} .contact-grid{grid-template-columns:1fr} .phone{height:320px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden>
+        <!-- simple dumbbell icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="9" width="4" height="6" rx="1.2" fill="white" opacity="0.16"/><rect x="19" y="9" width="4" height="6" rx="1.2" fill="white" opacity="0.16"/><rect x="7.5" y="10.2" width="9" height="3.6" rx="1" fill="white" opacity="0.95"/></svg>
+      </div>
+      <div>
+        <h1>Marina Wellness Club — Support</h1>
+        <p class="lead">Get help, report bugs, request features, or view FAQs for the Marina Wellness Club app.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="card support-intro">
+        <h2>Need help? We're here for you.</h2>
+        <p>Describe your issue, attach screenshots (optional), and our support team will reply. For urgent matters include <strong>Urgent</strong> in the subject.</p>
+
+        <div class="contact-grid">
+          <div class="method">
+            <strong>Email Support</strong>
+            <span class="small">support@marinawellnessclub.example</span>
+            <div style="margin-top:8px"><a class="btn" href="mailto:support@marinawellnessclub.example?subject=Support%20Request%20-%20marinawellnessclub">Email Us</a></div>
+          </div>
+          <div class="method">
+            <strong>Report a Bug</strong>
+            <span class="small">Send crash logs or steps to reproduce</span>
+            <div style="margin-top:8px"><a class="btn" href="#contact-form" onclick="document.getElementById('subject').value='Bug Report';document.getElementById('message').focus();">Report Bug</a></div>
+          </div>
+        </div>
+
+        <form id="contact-form" onsubmit="return handleSubmit(event)">
+          <div class="row">
+            <div class="col">
+              <label for="name">Your name</label>
+              <input id="name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="col">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@mail.com" required />
+            </div>
+          </div>
+
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="Subject (e.g. Login issue)" />
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Describe your issue and steps to reproduce..."></textarea>
+
+          <div style="display:flex;gap:10px;align-items:center">
+            <button type="submit" class="btn">Send Support Email</button>
+            <span class="small">Or attach screenshots when replying by email.</span>
+          </div>
+        </form>
+
+        <section class="faq">
+          <h3>Frequently Asked Questions</h3>
+          <details open>
+            <summary><strong>How do I update my subscription?</strong></summary>
+            <div class="small">Open the app → Profile → Subscriptions. For billing issues contact support@marinawellnessclub.example.</div>
+          </details>
+          <details>
+            <summary><strong>App crashes on startup — what do I do?</strong></summary>
+            <div class="small">Try reinstalling the app, restart the device, and if it persists send a bug report with logs and device model.</div>
+          </details>
+          <details>
+            <summary><strong>How can I request a new feature?</strong></summary>
+            <div class="small">Send a short description of the feature and use cases to support. We collect community requests for prioritization.</div>
+          </details>
+        </section>
+      </section>
+
+      <aside class="right">
+        <div class="card">
+          <div class="meta">
+            <div>
+              <div class="small">App</div>
+              <strong>Marina Wellness Club</strong>
+            </div>
+            <div class="small">Version: 1.0.0</div>
+          </div>
+
+          <div class="app-preview" style="margin-top:12px">
+            <div class="phone" role="img" aria-label="App preview">
+              <div style="text-align:center">
+                <h4>Welcome to Marina Wellness Club</h4>
+                <p class="small">Personalized workouts • Nutrition plans • Progress tracking</p>
+              </div>
+            </div>
+            <div class="links">
+              <a href="#" onclick="alert('Replace with actual App Store URL')">View on App Store (placeholder)</a>
+              <a href="#" onclick="alert('Replace with Play Store URL')">View on Google Play (placeholder)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="small">Support hours</div>
+          <strong>Mon–Fri, 09:00–18:00 (your local time)</strong>
+          <p class="small" style="margin-top:8px">We aim to reply within 24–48 hours. For urgent security or billing issues mark the subject as <code>Urgent</code>.</p>
+        </div>
+
+        <div class="card">
+          <strong>Legal & Links</strong>
+          <p class="small" style="margin:8px 0 0">Privacy policy | Terms of use | App Store listing</p>
+        </div>
+      </aside>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Marina Wellness Club — All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'Support Request';
+      const message = document.getElementById('message').value.trim();
+
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message + '\n\n' +
+        'App: Marina Wellness Club\n' + 'Version: 1.0.0'
+      );
+
+      // open user's email client with prefilled content (works on most devices)
+      const mailto = `mailto:support@marinawellnessclub.example?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = mailto;
+      return false;
+    }
+  </script>
+</body>
+</html>
